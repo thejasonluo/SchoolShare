@@ -41,7 +41,7 @@ def register():
 @app.route("/login", methods = ["GET", "POST"])
 def login():
     if "username" in session:
-    	return redirect(url_for("search"))
+    	return redirect(url_for("home.html"))
     if request.method == "GET":
         return render_template("index.html")
     else:
@@ -72,6 +72,11 @@ def share():
 def profile():
     events = utils.getEvents(session["username"])
     return render_template("profile.html", username = session['username'], events = events)
+    
+    
+@app.route("/addschool")
+def addschool():
+        if "
     
 #@app.route("/<Schoolname>")
 

@@ -72,6 +72,14 @@ def share():
 def profile():
     events = utils.getEvents(session["username"])
     return render_template("profile.html", username = session['username'], events = events)
+    
+#@app.route("/<Schoolname>")
+
+
+
+#@app.route("/<Schoolname>/<Classname>")
+
+
 
 
 if __name__=="__main__":

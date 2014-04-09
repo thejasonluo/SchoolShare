@@ -31,9 +31,9 @@ def loggedIn():
 		return False
 		
 		
-#def addSchool(school):
-#	db = getDB()
-#	db.update()
+def addSchool(username, school):
+	db = getDB()
+	db.update({"username": username}, {'$set' : {'school': school}})
 		
 def addClass(username, classname):
 	db=getDB()

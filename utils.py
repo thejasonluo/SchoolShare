@@ -4,7 +4,7 @@ from flask import session
 def register(username, password, first, last, school):
 	db=getDB()
 	if db.Collections.find_one({"username":username}) is None:
-		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school", school})
+		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school, "classes": []})
 		return True
 	else:
 		return False
@@ -17,7 +17,7 @@ def getDB():
 
 def authorize(username, password):
 	db= getDB()
-	user = db.Collections.find_one({"useername": username, "password": password})
+	user = db.Collections.find_one({"username": username, "password": password})
 	if user:
 		return True
 	else:
@@ -30,3 +30,15 @@ def loggedIn():
 		session["error"] = "mustLogin"
 		return False
 		
+		
+#def addSchool(school):
+#	db = getDB()
+#	db.update
+		
+def addClass(classname):
+	db=getDB()
+	if db.Collections.find_one("class": classname) is None:
+		db.Collections.insert({"class": classname})
+		return True
+	else:
+		return False

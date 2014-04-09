@@ -33,12 +33,8 @@ def loggedIn():
 		
 #def addSchool(school):
 #	db = getDB()
-#	db.update
+#	db.update()
 		
-def addClass(classname):
+def addClass(username, classname):
 	db=getDB()
-	if db.Collections.find_one("class": classname) is None:
-		db.Collections.insert({"class": classname})
-		return True
-	else:
-		return False
+	db.update({"username":username}, {'$push': {'classes' : classname}})

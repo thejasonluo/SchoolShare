@@ -34,7 +34,14 @@ def loggedIn():
 def addSchool(username, school):
 	db = getDB()
 	db.update({"username": username}, {'$set' : {'school': school}})
+	return school
 		
 def addClass(username, classname):
 	db=getDB()
 	db.update({"username":username}, {'$push': {'classes' : classname}})
+	return classname
+	
+#def getClassmates(school, classname):
+#	db = getDB()
+# figure out how to query in MongoDB
+	

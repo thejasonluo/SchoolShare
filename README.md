@@ -14,3 +14,5 @@ Jason: stuff
 Marlena: other stuff
 
 Jane: Work on CSS and cleaning up HTML pages, figure out how to make the timeline work (our fancy thing that might use SVG and will look like a cloud [Dorit has to explain to me what this cloud thing is/draw me a picture]), maybe some Flasky things
+
+ALSO we need to figure out how we're going to add people to certain groups, like whether they're going to require someone's approval or something

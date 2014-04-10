@@ -4,7 +4,7 @@ from flask import session
 def register(username, password, first, last, school):
 	db=getDB()
 	if db.Collections.find_one({"username":username}) is None:
-		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school, "classes": []})
+		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school, "subjects": []})
 		return True
 	else:
 		return False
@@ -36,10 +36,16 @@ def addSchool(username, school):
 	db.update({"username": username}, {'$set' : {'school': school}})
 	return school
 		
-def addClass(username, classname):
+def addSubject(username, subject):
 	db=getDB()
-	db.update({"username":username}, {'$push': {'classes' : classname}})
+	db.update({"username":username}, {'$push': {'subjects' : subject}})
+	return subject
+	
+def addClass(username, subject, classname):
+	db = getDB()
+	db.update({"username":username}, {'$push': {'subjects': subject}, {"classes": classname}})
 	return classname
+
 	
 #def getClassmates(school, classname):
 #	db = getDB()

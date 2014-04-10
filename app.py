@@ -76,7 +76,29 @@ def profile():
     
 @app.route("/addschool")
 def addschool():
-        if "
+        if "username" in session: 
+                schoolname = request.form["schoolname"]
+                if schoolname == null:
+                        return redirect("/addschool")
+                else:
+                        utils.addschool(session["username"], schoolname)
+                        return render_template("school.html")
+                
+        else:
+                return redirect("/login")
+                
+@app.route("/addclass")
+def addclass():
+        if "username" in session:
+                subject = request.form["subject"]
+                classname = request.form["classname"]
+                if subject == null || classname == null:
+                        return redirect("/addclass")
+                else:
+                        utils.addclass(session["username"], subject, classname)
+                        return render_template("class.html")
+        else:
+                return redirect("/login")
     
 #@app.route("/<Schoolname>")
 

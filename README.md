@@ -35,6 +35,8 @@ Date Class Page was Created <-------------------------------------------------->
 
 As you scroll over the timeline, you would see when different study materials were uploaded. 
 
+Potentially use http://timeline.knightlab.com/ ??
+
 List of HTML Pages:
 -Home
 -Login

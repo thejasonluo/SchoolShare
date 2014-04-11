@@ -104,7 +104,11 @@ def addclass():
 
 
 
-#@app.route("/<Schoolname>/<Classname>")
+#@app.route("/<Schoolname>/<Subject>/<Classname>")
+
+
+#app.route("/addDoc")
+
 
 
 

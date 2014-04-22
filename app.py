@@ -12,15 +12,15 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route("/")
 def home():
         if "username" not in session:
-                return render_template("index.html")
+                return render_template("login.html")
         else:
-                return redirect("/search")
+                return redirect("/")
 
 
 @app.route("/register", methods = ["GET", "POST"])
 def register():
     if "username" in session:
-    	return redirect(url_for("search"))
+    	return redirect(url_for("/"))
     if request.method == "GET":
         return render_template("register.html")
     if "username" not in session:
@@ -61,12 +61,7 @@ def logout():
         
 
 
-
-
-@app.route("/share")
-def share():
-    return render_template("share.html")
-
+##Do we want to have a profile that shows what classes you are attached to?
 
 @app.route("/profile")
 def profile():
@@ -100,14 +95,28 @@ def addclass():
         else:
                 return redirect("/login")
     
-#@app.route("/<Schoolname>")
+@app.route("/<Schoolname>")
+def school():
+        return render_template("school.html")
 
+@app.route("/<Schoolname>/<Subject>/<Classname>")
+def subject():
+        return render_template("subject.html")
 
+@app.route("/<Schoolname>/<Subject>/<Classname>")
+def classname():
+        return render_template("class.html")
 
-#@app.route("/<Schoolname>/<Subject>/<Classname>")
-
-
-#app.route("/addDoc")
+app.route("/addDoc"):
+def addDoc():  
+    for f in request.files:
+        file = request.files[f]
+        qname=f
+        filename=file.filename
+        for q in questions['questions']:
+            if q['name']==qname and filename != "":
+                q['answer']=filename
+                file.save(dirname+"/"+qname)
 
 
 

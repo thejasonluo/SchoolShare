@@ -46,6 +46,8 @@ def addClass(username, subject, classname):
 	db.update({"username":username}, {'$push': {'subjects': subject}, {"classes": classname}})
 	return classname
 
+
+
 	
 #def getClassmates(school, classname):
 #	db = getDB()

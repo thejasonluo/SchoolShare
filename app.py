@@ -107,7 +107,7 @@ def subject():
 def classname():
         return render_template("class.html")
 
-app.route("/addDoc"):
+@app.route("/addDoc"):
 def addDoc():  
     for f in request.files:
         file = request.files[f]

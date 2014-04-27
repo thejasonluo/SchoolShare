@@ -87,7 +87,7 @@ def addclass():
         if "username" in session:
                 subject = request.form["subject"]
                 classname = request.form["classname"]
-                if (subject == null) || (classname == null):
+                if (subject == null) or (classname == null):
                         return redirect("/addclass")
                 else:
                         utils.addclass(session["username"], subject, classname)

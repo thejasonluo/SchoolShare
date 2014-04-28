@@ -33,17 +33,17 @@ def loggedIn():
 		
 def addSchool(username, school):
 	db = getDB()
-	db.update({"username": username}, {'$set' : {'school': school}})
+	db.Collections.update({"username": username}, {'$set' : {'school': school}})
 	return school
 		
 def addSubject(username, subject):
 	db=getDB()
-	db.update({"username":username}, {'$push': {'subjects' : subject}})
+	db.Collections.update({"username":username}, {'$push': {'subjects' : subject}})
 	return subject
 	
 def addClass(username, subject, classname):
 	db = getDB()
-	db.update({"username":username}, {'$push': {'subjects': subject}, {"classes": classname}})
+	db.Collections.update({"username":username}, {'$push': {'subjects': subject}, {"classes": classname}})
 	return classname
 
 

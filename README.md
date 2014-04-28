@@ -49,3 +49,14 @@ List of HTML Pages:
          classes2 = list of all the study guides for one of the classes above
 -Submit Page
    -Confirmation/Failure
+   
+   
+   
+HI GUYS:
+So to print the documents on each page, Jane and I thought we could use this website.
+http://viewerjs.org/instructions/
+
+Maybe look into it a little??
+
+
+ALSO: Someone please figure out how to use the google spreadsheets API

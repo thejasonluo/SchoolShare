@@ -107,17 +107,26 @@ def subject():
 def classname():
         return render_template("class.html")
 
-@app.route("/addDoc")
+@app.route("/<Schoolname>/<Subject>/<Classname>/addDoc")
 def addDoc():  
     for f in request.files:
         file = request.files[f]
         qname=f
         filename=file.filename
-        for q in questions['questions']:
-            if q['name']==qname and filename != "":
-                q['answer']=filename
-                file.save(dirname+"/"+qname)
-
+        if (files[filename] == null):
+                file.save(filename)
+        else: 
+                render_template("docerror.html")       
+@app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
+def editDoc():
+        for f in request.files:
+        file = request.files[f]
+        qname=f
+        filename=file.filename
+        if (files[filename] == null):
+               render_template("docerror2.html")
+        else: 
+                file.save(filename)
 
 
 

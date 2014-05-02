@@ -47,9 +47,46 @@
       </div>
 
       <div class="pure-u-1-3" align="center">
+	<a class="pure-button" href="#register" style="background-color:#E0FFFF">
+	  <i class="fa fa-sign-in"></i>
+		  Register!    
+	</a>
+      </div>
+
+      <section class="semantic-content" id="login" tabindex="-1"
+	       role="dialog" aria-labelledby="register" aria-hidden="true">
+	<div class="modal-inner" style="letter-spacing:0em">
+	  <header id="register">
+	    <h1> Register </h1>
+	  </header>
+	 
+	  <div class="modal-content" align="center">
+	    <p>
+	      Welcome to SchoolShare!
+	      <br>
+	      Making an account with SchoolShare will open up a variety of new opportunities and ways to explore. Submit your own study guides to help others and subscribe to the classes you're taking right now to always stay updated! Simple fill out the form below to be on your way to an easier way of studying.
+	    </p>
+
+	    <form class="pure-form pure-form-stacked" action="/login" method="post">
+	      <input name="first" type="text" placeholder "First Name" required>
+	      <input name="last" type="text" placeholder= "Last Name" required>
+	      <input name="username" type="text" placeholder="Username" required>
+	      <input name="password" type="password" placeholder="Password" required>
+	      <input name="email" tpe="text" placeholder="Email" required>
+	      <button class="pure-button pure-button-primary" type="submit"> Register </button>
+	    </form>
+
+	  </div>
+	</div>
+
+	<a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="modal">x</a>
+      </section>
+
+
+      <div class="pure-u-1-3" align="center">
 	<a class="pure-button" href="#login" style="background-color:#E0FFFF">
 	  <i class="fa fa-sign-in"></i>
-		  Sign In!    
+		  Login!    
 	</a>
       </div>
 
@@ -73,6 +110,6 @@
 	      <button class="pure-button pure-button-primary" type="submit">Login</button>
 	    </form>
 	  </div>
-
+	 </div>
 	  <a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="modal">x</a>
       </section>

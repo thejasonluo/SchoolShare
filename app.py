@@ -116,7 +116,7 @@ def addDoc():
         if (files[filename] == null):
                 file.save(filename)
         else: 
-                render_template("docerror.html")       
+                render_template("docerror2.html")       
 @app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
 def editDoc():
         for f in request.files:
@@ -124,7 +124,7 @@ def editDoc():
         qname=f
         filename=file.filename
         if (files[filename] == null):
-               render_template("docerror2.html")
+               render_template("docerror.html")
         else: 
                 file.save(filename)
 

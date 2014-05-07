@@ -2,37 +2,62 @@
   <head>
     <meta charset="utf-8">
     <!-- Loading Bootstrap -->
-    <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
     <link href="../static/css/flat-ui.css" rel="stylesheet">
     <link href="../static/css/demo.css" rel="stylesheet">
-
+    <script src="../static/js/jquery-2.0.3.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
    </head>
 
   <body>
-
-           <div class="row demo-row">
+       <div class="row demo-row">
       <!--Navbar-->
-      <div class="col-xs-9">
-	<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
-	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01"> 
-	      <span class="sr-only">Toggle navigation </span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbar-collapse-01">
-	      <ul class="nav navbar-nav navbar-left">
-		<li><a href="/home"> School Share <span class="navbar-unread">1</span> </a></li>
+      <nav class="navbar navbar-inverse" role="navigation">
+      	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-02">
+      			<span class="sr-only"> Toggle navigation</span>
+      		</button>
+      		<a class="navbar-brand" href="/"> SchoolShare</a> 
+      	</div>
+      	<div class="collapse navbar-collapse">
 
-		<li class="dropdown">
-		  <a href="/classes" class="dropdown-toggle" data-toggle="dropdown"> Classes <b class="caret"> </b> </a>
-		  <span class="dropdown-arrow"></span>
-	       <ul class="dropdown-menu">
-		 <li> <a href"#"> Classes Go Here </a> </li>
-	       </ul>
-	      </li>
-	     </ul>
-	     </div>
--->
-	     
-		 
+      		<ul class="nav navbar-nav">
+      			<li class="dropdown">
+      				<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:22">
+      					Class
+      					<b class="caret"></b>
+      				</a>
+      				<span class="drowndown-arrow"></span>
+      				<ul class="dropdown-menu">
+      					<li>
+      						<a href="#">something</a>
+      					</li>
+      					<li>
+      						<a href="#">something</a>
+      					</li>
+      					<li>
+      						<a href="#">something</a>
+      					</li>
+      				</ul>
+      			</li>	
+      			<li>
+      				<a href="/profile.html" style="font-size:18";>Profile</a>
+
+      			</li>
+      		</ul>
+      		<div class="nav navbar-nav" style="float:right; margin-right:10px; margin-top: 4px;">
+      				<div>
+      				<a href="#" class="btn btn-block btn-lg btn-info">Logout </a>
+      				</div>
+      		</div>
+      	</div>
+      </nav>
+
+
+      </nav>
+  </body>
+<script>
+
+</script>

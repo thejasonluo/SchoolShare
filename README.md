@@ -51,4 +51,6 @@ Maybe look into it a little??
 
 ^^ working on it. downloaded the file in static but might have to move it to the top folder later -marlena
 
+I tried to add it to the top folder and it said the change was in app.py. I dont know if that means anything but yeah-Dorit
+
 ALSO: Someone please figure out how to use the google spreadsheets API

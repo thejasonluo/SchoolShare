@@ -88,12 +88,12 @@ def addclass():
                 subject = request.form["subject"]
                 classname = request.form["classname"]
                 if (subject == null) or (classname == null):
-                        return redirect("/addclass")
+                    return redirect("/addclass")
                 else:
-                        utils.addclass(session["username"], subject, classname)
-                        return render_template("class.html")
+                    utils.addclass(session["username"], subject, classname)
+                    return render_template("class.html")
         else:
-                return redirect("/login")
+            return redirect("/login")
                         
 @app.route("/<Schoolname>")
 def school():
@@ -109,43 +109,42 @@ def classname():
 
 @app.route("/<Schoolname>/<Subject>/<Classname>/addDoc")
 def addDoc():  
-<<<<<<< HEAD
         for f in request.files:
                 file = request.files[f]
                 filename=files.filename
                 if (files[filename] == null):
-                        file.save(filename)
+                    file.save(filename)
                 else: 
-                        render_template("docerror.html")       
-                        @app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
-                        def editDoc():
-                                for f in request.files:
-                                        file = request.files[f]
-                                        filename=file.filename
-                                        if (files[filename] == null):
-                                                render_template("docerror2.html")
-                                        else: 
-                                                file.save(filename)
-=======
+                    render_template("docerror.html")       
+            
+@app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
+def editDoc():
     for f in request.files:
         file = request.files[f]
-        qname=f
         filename=file.filename
         if (files[filename] == null):
-                file.save(filename)
+            render_template("docerror2.html")
         else: 
+            file.save(filename)
+
+        for f in request.files:
+            file = request.files[f]
+            qname=f
+            filename=file.filename
+            if (files[filename] == null):
+                file.save(filename)
+            else: 
                 render_template("docerror2.html")       
 @app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
 def editDoc():
         for f in request.files:
-        file = request.files[f]
-        qname=f
-        filename=file.filename
-        if (files[filename] == null):
+            file = request.files[f]
+            qname=f
+            filename=file.filename
+            if (files[filename] == null):
                render_template("docerror.html")
-        else: 
+            else: 
                 file.save(filename)
->>>>>>> 9b8fe921bd99176ad089e35a8a328ef0dd7ea309
 
 
 

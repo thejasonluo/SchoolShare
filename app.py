@@ -12,9 +12,9 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route("/")
 def home():
         if "username" not in session:
-                return render_template("login.html")
+                return render_template("register.html")
         else:
-                return redirect("/")
+                return redirect("/profile")
 
 
 @app.route("/register", methods = ["GET", "POST"])
@@ -65,8 +65,8 @@ def logout():
 
 @app.route("/profile")
 def profile():
-        events = utils.getEvents(session["username"])
-        return render_template("profile.html", username = session['username'], events = events)
+        events = utils.getClasses(session["username"])
+        return render_template("profile.html", username = session['username'], classes = classes)
         
     
 @app.route("/addschool")

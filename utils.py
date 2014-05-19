@@ -43,7 +43,7 @@ def addSubject(username, subject, classes):
 	
 def addClass(username, subject, classname):
 	db = getDB()
-	db.Collections.update({"username":username}, {'$push': {'subjects': subject, "classes": classes}})
+	db.Collections.update({"username":username}, {'$push': {'subjects': subject, "classes": classname}})
 	return classname
 
 

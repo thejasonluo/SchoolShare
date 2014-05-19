@@ -47,7 +47,7 @@ def addClass(username, subject, classname):
 	return classname
 
 
-def getClasses(username)
+def getClasses(username):
 	db = getDB()
 	classes = [classes for classes in db.Collections.find("username": username)]
 	return classes

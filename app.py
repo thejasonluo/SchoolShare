@@ -127,14 +127,7 @@ def editDoc():
         else: 
             file.save(filename)
 
-        for f in request.files:
-            file = request.files[f]
-            qname=f
-            filename=file.filename
-            if (files[filename] == null):
-                file.save(filename)
-            else: 
-                render_template("docerror2.html")       
+            
 @app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
 def editDoc():
         for f in request.files:

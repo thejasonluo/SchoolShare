@@ -21,20 +21,20 @@ def home():
 def register():
         if "username" in session:
                 return redirect(url_for("/"))
-                if request.method == "GET":
+        if request.method == "GET":
                         return render_template("register.html")
-                if "username" not in session:
-                        username = request.form["username"]
-                        password = request.form["password"]
-                        confirm = request.form["confirm"]
-                        securityq = request.form["securityq"]
-                        securitya = request.form["securitya"]
-                        if utils.register(username, password, confirm, securityq, securitya):
-                                session["username"] = username
-                                return redirect(url_for("search"))
-                        else:
-                                return redirect(url_for("register"))
+        if "username" not in session:
+                username = request.form["username"]
+                password = request.form["password"]
+                confirm = request.form["confirm"]
+                securityq = request.form["securityq"]
+                securitya = request.form["securitya"]
+                if utils.register(username, password, confirm, securityq, securitya):
+                        session["username"] = username
+                        return redirect(url_for("search"))
                 else:
+                        return redirect(url_for("register"))
+        else:
                         return redirect(url_for("search"))
 
         

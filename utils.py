@@ -4,7 +4,7 @@ from flask import session
 def register(username, password, first, last, school):
 	db=getDB()
 	if db.Collections.find_one({"username":username}) is None:
-		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school, "subjects": []})
+		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school,"classes": [], "subjects": []})
 		return True
 	else:
 		return False

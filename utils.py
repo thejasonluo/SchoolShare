@@ -36,14 +36,14 @@ def addSchool(username, school):
 	db.Collections.update({"username": username}, {'$set' : {'school': school}})
 	return school
 		
-def addSubject(username, subject):
+def addSubject(username, subject, classes):
 	db=getDB()
 	db.Collections.update({"username":username}, {'$push': {'subjects' : subject}})
 	return subject
 	
 def addClass(username, subject, classname):
 	db = getDB()
-	db.Collections.update({"username":username}, {'$push': {'subjects': subject}, {"classes": classname}})
+	db.Collections.update({"username":username}, {'$push': {'subjects': subject, "classes": classes}})
 	return classname
 
 

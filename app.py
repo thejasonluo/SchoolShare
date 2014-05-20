@@ -90,8 +90,8 @@ def addclass():
                 else:
                         utils.addclass(session["username"], subject, classname)
                         return render_template("class.html")
-                else:
-                        return redirect("/login")
+        else:
+                return redirect("/login")
                         
 @app.route("/<Schoolname>")
 def school():

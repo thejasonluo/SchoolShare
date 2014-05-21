@@ -27,14 +27,17 @@ def register():
                 username = request.form["username"]
                 password = request.form["password"]
                 confirm = request.form["confirm"]
-                securityq = request.form["securityq"]
-                securitya = request.form["securitya"]
-                if utils.register(username, password, confirm, securityq, securitya):
-                        session["username"] = username
-                        return redirect(url_for("search"))
+                firstname = request.form["first"]
+                lastname = request.form["securitya"]
+                school = request.form["school"]
+                if password == confirm:
+                        if utils.register(username, password, firstname, lastname, school):
+                                session["username"] = username
+                                return redirect(url_for("search"))
+                        else:
+                                return redirect(url_for("register"))
                 else:
                         return redirect(url_for("register"))
-        
         
 @app.route("/login", methods = ["GET", "POST"])
 def login():

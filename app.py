@@ -71,7 +71,7 @@ def profile():
 def addschool():
         if "username" in session: 
                 schoolname = request.form["schoolname"]
-                if schoolname == Null:
+                if schoolname is None:
                         return redirect("/addschool")
                 else:
                         utils.addSchool(session["username"], schoolname)
@@ -85,7 +85,7 @@ def addclass():
         if "username" in session:
                 subject = request.form["subject"]
                 classname = request.form["classname"]
-                if (subject == null) or (classname == null):
+                if (subject is None) or (classname is None):
                         return redirect("/addclass")
                 else:
                         utils.addclass(session["username"], subject, classname)
@@ -109,8 +109,8 @@ def classname():
 def addDoc():  
         for f in request.files:
                 file = request.files[f]
-                filename=files.filename
-                if (files[filename] == null):
+                filename=file.filename
+                if (file[filename] is None):
                         file.save(filename)
                 else: 
                         render_template("docerror.html")       
@@ -123,7 +123,7 @@ def editDoc():
                 file = request.files[f]
                 qname=f
                 filename=file.filename
-                if (files[filename] == null):
+                if (file[filename] is None):
                         render_template("docerror2.html")
                 else: 
                         file.save(filename)

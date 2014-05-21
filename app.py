@@ -11,10 +11,7 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route("/")
 def home():
-        if "username" not in session:
-                return render_template("register.html")
-        else:
-                return redirect("/profile")
+        return render_template("home.html")
 
 
 @app.route("/register", methods = ["GET", "POST"])
@@ -74,10 +71,10 @@ def profile():
 def addschool():
         if "username" in session: 
                 schoolname = request.form["schoolname"]
-                if schoolname == null:
+                if schoolname == Null:
                         return redirect("/addschool")
                 else:
-                        utils.addschool(session["username"], schoolname)
+                        utils.addSchool(session["username"], schoolname)
                         return render_template("school.html")
                         
         else:
@@ -96,19 +93,19 @@ def addclass():
         else:
                 return redirect("/login")
                         
-@app.route("/<Schoolname>")
+@app.route("/schools/<Schoolname>")
 def school():
         return render_template("school.html")
 
-@app.route("/<Schoolname>/<Subject>/<Classname>")
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>")
 def subject():
         return render_template("subject.html")
 
-@app.route("/<Schoolname>/<Subject>/<Classname>")
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>")
 def classname():
         return render_template("class.html")
 
-@app.route("/<Schoolname>/<Subject>/<Classname>/addDoc")
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>/addDoc")
 def addDoc():  
         for f in request.files:
                 file = request.files[f]
@@ -120,7 +117,7 @@ def addDoc():
                         
 
             
-@app.route("/<Schoolname>/<Subject>/<Classname>/editDoc")
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
 def editDoc():
         for f in request.files:
                 file = request.files[f]

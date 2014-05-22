@@ -1,7 +1,15 @@
-.title{
+body {
+    background-image: url('amphitheater.jpg');
+    background-size: 100%;
+    background-color: red;
+
+
+}
+#title {
     text-align: center;
-    font-family: Avantgarde, sans-serif;
-    font-size: 200px;
-    letter-spacing: 3px;
+    font-family: "Lucida Console", sans-serif;
+    font-size: 50px;
+    letter-spacing: 7px;
+    color: gray;
 }
 

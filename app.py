@@ -21,14 +21,13 @@ def register():
         if request.method == "GET":
                 return render_template("register.html")
         elif "username" not in session:
-                username = request.form["username"]
-                password = request.form["password"]
-                confirm = request.form["confirm"]
                 firstname = request.form["first"]
                 lastname = request.form["securitya"]
-                school = request.form["school"]
+                username = request.form["username"]
+                password = request.form["password"]
+                email = request.form["email"]
                 if password == confirm:
-                        if utils.register(username, password, firstname, lastname, school):
+                        if utils.register(username, password, firstname, lastname, email):
                                 session["username"] = username
                                 return redirect(url_for("search"))
                         else:
@@ -41,7 +40,7 @@ def login():
         if "username" in session:
                 return redirect(url_for("home.html"))
         if request.method == "GET":
-                return render_template("index.html")
+                return render_template("login.html")
         else:
                 username = request.form["username"]
                 password = request.form["password"]

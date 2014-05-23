@@ -41,7 +41,7 @@ def login():
         if "username" in session:
                 return redirect(url_for("home.html"))
         if request.method == "GET":
-                return render_template("index.html")
+                return render_template("login.html")
         else:
                 username = request.form["username"]
                 password = request.form["password"]

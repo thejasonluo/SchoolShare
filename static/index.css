@@ -15,7 +15,7 @@ body {
 
 .transbox {
 	background-color:#FFFFFF;
-	opacity: 0.6;
+	opacity: .9;
 	width: 750px;
 	height: 270px;
 	position: relative;

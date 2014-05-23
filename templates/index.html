@@ -8,16 +8,100 @@
         <link href="../static/css/flat-ui.css" rel="stylesheet">
         <link href="../static/css/demo.css" rel="stylesheet">
         
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
         <link href="../static/index.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="../static/modal.css">
         
         <script src="../static/js/jquery-2.0.3.min.js"></script>
         <script src="../static/js/bootstrap.min.js"></script>
         
     </head>
-    
+
     <body>
         <h1  id = "title" > SCHOOLSHARE </h1>
-        
+        <div class="transbox">
+            <div class="textbox">
+            <h2> An innovative way to stay connected without being distracted </h2>
+            <p>
+                Share study guides, notes, and tips amongst your fellow classmates. Find your schools and classes, or access other schools for new experiences! Stay informed and connected with the convenience of Facebook groups but without other distracting features. With SchoolShare, you can stay focused on your work without missing anything.
+            </p>
+
+            <!--REGISTER -->
+            <!--register button-->
+            <div class="pure-u-1-3">
+                <a id = "regbtn" class="pure-button" href="#register" style="background-color:#E0FFFF">
+                    <i class="fa fa-sign-in"> </i>
+                    Register
+                </a>
+            </div>
+
+            <!--register modal-->
+            <section class="semantic-content" id="register" tabindex="-1" role="dialog" aria-labelledby="register" arai-hidden="true">
+                <div class="modal-inner" style="letter-spacing:0em">
+                    <header id="register">
+                        <h1> Register </h1>
+                    </header>
+
+                    <div class="modal-content" align="center">
+                        <p> Welcome to School Share!
+                            <br>
+                            Just fill out the form below to be on your way to an easier world of studying.
+                        </p>
+
+                        <form class="pure-form pure-form-stacked" action="/login" method="post">
+                            <input name="first" type="text" placeholder="First Name" required>
+                            <input name="last" type="text" placeholder="Last Name" required>
+                            <input name="username" type="text" placeholder="Username" required>
+                            <input name="password" type="password" placeholder="Password" required>
+                            <input name="email" type="text" placeholder="Email" required>
+
+                            <button class="pure-button pure-button-primary" type="submit"> Register </button>
+                        </form>
+                    </div>
+                </div>
+
+                <a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="modal"> x </a>
+            </section>
+
+            <!--LOGIN-->
+            <!--login button-->
+            <div class="pure-u-1-3">
+                <a id = "loginbtn" class="pure-button" href="#login" style="background-color: #E0FFFF">
+                    <i class="fa fa-sign-in"> </i>
+                    Login!
+                </a>
+            </div>
+
+            <!--login modal-->
+            <section class="semantic-content" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+                <div class="modal-inner" style="letter-spacing:0em">
+                    <header id="login">
+                        <h1> Login </h1>
+                    </header>
+
+                    <div class="modal-content" align="center">
+                        <p>
+                            Welcome back to SchoolShare!
+                        </p>
+                        <form class="pure-form pure-form-stacked" action="/login" method="post">
+                            <input name="username" type="text" placeholder="Username" required>
+                            <input name="password" type="password" placeholder="Password" required>
+                            <br>
+                            <button class="pure-button pure-button-primary" type="submit"> Login </button>
+                        </form>
+                    </div>
+
+
+                </div>
+                <a href="#!" class="modal-close" title="Close this modal" data-close="Close" data-dismiss="modal"> x </a>
+            </section>
+        </div>
+
+        </div>
+
     </body>
+
 </html>
     

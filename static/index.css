@@ -1,15 +1,39 @@
 body {
-    background-image: url('amphitheater.jpg');
-    background-size: 100%;
+    background-image: url('ivy.jpg');
+    background-size: 100% 175%;
+    background-repeat: no-repeat;
     background-color: red;
-
-
 }
+
 #title {
     text-align: center;
     font-family: "Lucida Console", sans-serif;
     font-size: 50px;
     letter-spacing: 7px;
-    color: gray;
+    color: white;
 }
 
+.transbox {
+	background-color:#FFFFFF;
+	opacity: 0.6;
+	width: 750px;
+	height: 270px;
+	position: relative;
+	left: 500px;
+	top: 50px;
+}
+
+.textbox {
+	margin: 30px 25px;
+	font-weight: bold;
+}
+
+#loginbtn {
+	position: relative;
+	right: 50px;
+}
+
+#regbtn {
+	postion: relative;
+	left: 50px;
+}

@@ -34,7 +34,7 @@ def register():
                 if password == confirm:
                         if utils.register(username, password, firstname, lastname, email):
                                 session["username"] = username
-                                return redirect(url_for("search"))
+                                return redirect(url_for("profile"))
                         else:
                                 return redirect(url_for("register"))
         else:

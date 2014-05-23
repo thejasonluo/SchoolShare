@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 from flask import session
 
-def register(username, password, first, last, school):
+def register(username, password, first, last, email):
 	db=getDB()
 	if db.Collections.find_one({"username":username}) is None:
-		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "school": school,"classes": [], "subjects": []})
+		db.Collections.insert({"username":username, "password": password, "first": first, "last": last, "email": email, "classes": [], "subjects": []})
 		return True
 	else:
 		return False

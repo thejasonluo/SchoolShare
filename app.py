@@ -11,7 +11,7 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route("/")
 def home():
-        return render_template("index.html")
+        return render_template("home.html")
 
 
 @app.route("/about")
@@ -27,16 +27,15 @@ def register():
                 return render_template("register.html")
         elif "username" not in session:
                 firstname = request.form["first"]
-                lastname = request.form["securitya"]
+                lastname = request.form["last"]
                 username = request.form["username"]
                 password = request.form["password"]
                 email = request.form["email"]
-                if password == confirm:
-                        if utils.register(username, password, firstname, lastname, email):
-                                session["username"] = username
-                                return redirect(url_for("profile"))
-                        else:
-                                return redirect(url_for("register"))
+                if utils.register(username, password, firstname, lastname, email):
+                        session["username"] = username
+                        return redirect(url_for("profile"))
+                else:
+                        return redirect(url_for("register"))
         else:
                 return redirect(url_for("register"))
         

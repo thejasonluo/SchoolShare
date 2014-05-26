@@ -39,6 +39,7 @@ def register():
         else:
                 return redirect(url_for("register"))
         
+
 @app.route("/login", methods = ["GET", "POST"])
 def login():
         if "username" in session:
@@ -48,6 +49,7 @@ def login():
         else:
                 username = request.form["username"]
                 password = request.form["password"]
+                print(utils.authorize(username, password))
                 if utils.authorize(username, password):
                         session["username"] = username
                         return redirect(url_for("profile"))

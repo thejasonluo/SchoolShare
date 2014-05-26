@@ -9,20 +9,20 @@ def record_exists(collection, query, limit=1):
         return collection.find(query, limit=1).count(True) > 0
 
 def user_exists(username):
-        return record_exists(db.users, {'username': username})
+        return record_exists(db.Collections, {'username': username})
 
 def authorize(username, password):
-        return record_exists(db.users, {'username': username, 'password': password})
+        return record_exists(db.Collections, {'username': username, 'password': password})
 
 def update_user(username, password):
-        db.users.update(
+        db.Collections.update(
                 {'username': username},
                 {'password': password},
                 upsert=True
         )
 
 def insert_user(username, password):
-        db.users.insert(
+        db.Collections.insert(
                 {'username': username,
                  'password': password,
                  'first': first,
@@ -57,7 +57,7 @@ def change_password(username, password):
                 return 'Success!'
 
 def change_username(username, new_username):
-        db.users.update({'username': username}, {'username': new_username})
+        db.Collections.update({'username': username}, {'username': new_username})
 
 def logged_in():
         if not user_exists(session.get('username', None)):

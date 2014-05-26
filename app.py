@@ -51,9 +51,11 @@ def login():
                 password = request.form["password"]
                 if utils.authorize(username, password):
                         session["username"] = username
-                        return redirect(url_for("search"))
+                        return redirect(url_for("profile"))
                 else:
-                        return redirect(url_for("login"))
+                        return redirect(url_for("home"))
+
+
 
 @app.route("/logout")
 def logout():

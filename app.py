@@ -80,9 +80,6 @@ def addschool():
     else:
         return redirect("/login")
 
-@app.route("/<username>/")
-def profile():
-    return render_template("profile.html")
 
 @app.route("/addclass")
 def addclass():

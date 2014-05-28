@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 from flask import session
  
-client = MongoClient()
+client = pymongo.MongoClient()
 db = client.schoolshare
  
 def record_exists(collection, query, limit=1):

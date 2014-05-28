@@ -33,7 +33,7 @@ def register():
         email = request.form["email"]
         if utils.register(username, password, firstname, lastname, email):
             session["username"] = username
-            return redirect(url_for("profile"))
+            return redirect(url_for("<username>"))
         else:
             return redirect(url_for("register"))
     else:
@@ -50,7 +50,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         if utils.login_user(username, password):
-            return redirect(url_for("profile"))
+            return redirect(url_for("<username>"))
         else:
             return redirect(url_for("home"))
  
@@ -61,7 +61,7 @@ def logout():
  
  
 # Do we want to have a profile that shows what classes you are attached to?
-@app.route("/profile")
+@app.route("/<username>")
 def profile():
     classes = utils.getClasses(session["username"])
     return render_template("profile.html", username=session['username'], classes=classes)
@@ -79,8 +79,11 @@ def addschool():
  
     else:
         return redirect("/login")
- 
- 
+
+@app.route("/<username>/")
+def profile():
+    return render_template("profile.html")
+
 @app.route("/addclass")
 def addclass():
     if "username" in session:

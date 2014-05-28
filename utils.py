@@ -84,5 +84,5 @@ def addClass(username, subject, classname):
  
 
 def getClasses(username):
-    classes = [x for classes in db.users.find({"username": username})]
+    classes = [x for classes in db.Collections.find({"username": username})]
     return classes

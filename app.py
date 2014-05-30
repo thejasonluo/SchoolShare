@@ -124,12 +124,18 @@ def edit():
       First = request.form["first"]
       Last = request.form["last"]
       School = request.form["school"]
+      NewUser = request.form["username"]
+      NewPass = request.form["password"]
       if not (first is None):
         utils.updateFirst(First)
       if not (Last is None):
         utils.updateLast(Last)
       if not (School is None):
         utils.updateSchool(School)
+      if not (NewUser is None):
+        utils.change_username("username", NewUser)
+      if not (NewPass is None):
+        utils.change_password("username", NewPass)
   else:
     return redirect("/login")
     

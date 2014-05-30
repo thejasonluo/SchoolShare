@@ -95,6 +95,19 @@ def addclass():
         return redirect("/login")
  
  
+@app.route("/addsubject")
+def addsubject():
+    if "username" in session:
+        subject = request.form["subject"]
+        if (subject is None):
+            return redirect("/addsubject")
+        else:
+            utils.addsubject(session["username"], subject)
+            return render_template("subject.html")
+    else:
+        return redirect("/login")
+
+ 
 @app.route("/schools/<Schoolname>")
 def school():
     return render_template("school.html")

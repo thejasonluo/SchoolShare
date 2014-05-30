@@ -118,6 +118,22 @@ def subject():
     return render_template("subject.html")
  
  
+@app.route("/editprofile")
+def edit():
+  if "username" in session:
+      First = request.form["first"]
+      Last = request.form["last"]
+      School = request.form["school"]
+      if not (first is None):
+        utils.updateFirst(First)
+      if not (Last is None):
+        utils.updateLast(Last)
+      if not (School is None):
+        utils.updateSchool(School)
+  else:
+    return redirect("/login")
+    
+ 
 @app.route("/schools/<Schoolname>/<Subject>/<Classname>")
 def classname():
     return render_template("class.html")

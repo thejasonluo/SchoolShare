@@ -149,6 +149,8 @@ def classname():
 def addDoc():
     for f in request.files:
         file = request.files[f]
+        if (file is None):
+          render_template("docerror.html")
         filename = file.filename
         if (file[filename] is None):
             file.save(filename)

@@ -153,7 +153,7 @@ def addDoc():
         if (file[filename] is None):
             file.save(filename)
         else:
-            render_template("docerror.html")
+            render_template("docerror2.html")
  
  
 @app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
@@ -163,7 +163,7 @@ def editDoc():
         qname = f
         filename = file.filename
         if (file[filename] is None):
-            render_template("docerror2.html")
+            render_template("docerror.html")
         else:
             file.save(filename)
  

@@ -154,7 +154,7 @@ def addDoc():
         filename = file.filename
         if (file[filename] is None):
             file.save(filename)
-            jsname = "<a href="/ViewerJS/#../path/to/"" + filename + ">"
+            jsname = "<a href=\"/ViewerJS/#../path/to/\"" + filename + ">"
         else:
             render_template("docerror2.html")
        

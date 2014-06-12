@@ -20,6 +20,7 @@ def update_user(username, password):
         {'password': password},
         upsert=True
     )
+
  
 def insert_user(username, password, first, last, email):
     db.users.insert(

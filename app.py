@@ -95,6 +95,19 @@ def addclass():
         return redirect("/login")
  
  
+@app.route("/addsubject")
+def addsubject():
+    if "username" in session:
+        subject = request.form["subject"]
+        if (subject is None):
+            return redirect("/addsubject")
+        else:
+            utils.addsubject(session["username"], subject)
+            return render_template("subject.html")
+    else:
+        return redirect("/login")
+
+ 
 @app.route("/schools/<Schoolname>")
 def school():
     return render_template("school.html")
@@ -105,6 +118,28 @@ def subject():
     return render_template("subject.html")
  
  
+@app.route("/editprofile")
+def edit():
+  if "username" in session:
+      First = request.form["first"]
+      Last = request.form["last"]
+      School = request.form["school"]
+      NewUser = request.form["username"]
+      NewPass = request.form["password"]
+      if not (first is None):
+        utils.updateFirst(First)
+      if not (Last is None):
+        utils.updateLast(Last)
+      if not (School is None):
+        utils.updateSchool(School)
+      if not (NewUser is None):
+        utils.change_username("username", NewUser)
+      if not (NewPass is None):
+        utils.change_password("username", NewPass)
+  else:
+    return redirect("/login")
+    
+ 
 @app.route("/schools/<Schoolname>/<Subject>/<Classname>")
 def classname():
     return render_template("class.html")
@@ -114,12 +149,16 @@ def classname():
 def addDoc():
     for f in request.files:
         file = request.files[f]
+        if (file is None):
+          render_template("docerror.html")
         filename = file.filename
         if (file[filename] is None):
             file.save(filename)
+            jsname = "<a href=\"/ViewerJS/#../path/to/\"" + filename + ">"
+            render_template("class.html", jsname = jsname)
         else:
-            render_template("docerror.html")
- 
+            render_template("docerror2.html")
+       
  
 @app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
 def editDoc():
@@ -128,7 +167,7 @@ def editDoc():
         qname = f
         filename = file.filename
         if (file[filename] is None):
-            render_template("docerror2.html")
+            render_template("docerror.html")
         else:
             file.save(filename)
  

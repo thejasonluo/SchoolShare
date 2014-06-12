@@ -55,3 +55,6 @@ I tried to add it to the top folder and it said the change was in app.py. I dont
 
 ALSO: Someone please figure out how to use the google spreadsheets API
 ^jane said she was going to do it
+
+install flask: install virtualenv, source activate, pip install flask
+check to see if mongodb is installed if still not running

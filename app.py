@@ -115,7 +115,7 @@ def school():
  
 @app.route("/schools/<Schoolname>/<Subject>/<Classname>")
 def subject():
-    return render_template("subject.html")
+    return render_template("class.html")
  
  
 @app.route("/editprofile")

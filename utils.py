@@ -1,4 +1,3 @@
-
 from pymongo import MongoClient
 from flask import session
  
@@ -20,7 +19,7 @@ def update_user(username, password):
         {'password': password},
         upsert=True
     )
-
+ 
  
 def insert_user(username, password, first, last, email):
     db.users.insert(
@@ -30,7 +29,7 @@ def insert_user(username, password, first, last, email):
          'last': last,
          'email': email,
          'classes': [],
-         'subjects': []}
+         }
     )
  
 def login_user(username, password):
@@ -67,23 +66,8 @@ def logged_in():
         session.pop('username', None)
     return session.get('username', None) != None
  
+def add_class(username, classname):
+    db.classes.insert({"name": classname, "user": username})
  
-def addSchool(username, school):
-    db.users.update(
-        {"username": username}, {'$set': {'school': school}})
-    return school
- 
- 
-def addSubject(username, subject, classes):
-    db.users.update({"username": username}, {'$push': {'subjects': subject}})
-    return subject
- 
- 
-def addClass(username, subject, classname):
-    db.users.update({"username": username}, {'$push': {'subjects': subject, "classes": classname}})
-    return classname
- 
-
-def getClasses(username):
-    classes = [x for classes in db.Collections.find({"username": username})]
-    return classes
+def get_classes(username):
+    return db.classes.find({"user": username})

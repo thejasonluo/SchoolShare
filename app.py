@@ -1,23 +1,32 @@
-
 from flask import Flask, request, render_template, url_for, redirect, session, request
-import json
-import urllib
-import urllib2
+from werkzeug.utils import secure_filename
+import json, urllib, urllib2, utils, os
  
-import utils
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'doc'])
  
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+app.config['UPLOAD_FOLDER'] = '/uploads'
+ 
+env = app.jinja_env
+env.globals.update(utils=utils)
+ 
+@app.route("/classes")
+def classes():
+    return render_template("classes.html")
+ 
+@app.route("/classes/<classname>")
+def one_class():
+    pass
+ 
+@app.route("/addclass", methods=["GET", "POST"])
+def add_class():
+    return render_template("addclass.html")
  
  
 @app.route("/")
 def home():
-    return render_template("home.html", loggedIn=utils.logged_in())
- 
- 
-@app.route("/about")
-def about():
-    return render_template("index.html")
+    return render_template("home.html")
  
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -63,114 +72,8 @@ def logout():
 # Do we want to have a profile that shows what classes you are attached to?
 @app.route("/profile")
 def profile():
-    classes = utils.getClasses(session["username"])
+    classes = utils.get_classes(session["username"])
     return render_template("profile.html", username=session['username'], classes=classes)
- 
- 
-@app.route("/addschool")
-def addschool():
-    if "username" in session:
-        schoolname = request.form["schoolname"]
-        if schoolname is None:
-            return redirect("/addschool")
-        else:
-            utils.addSchool(session["username"], schoolname)
-            return render_template("school.html")
- 
-    else:
-        return redirect("/login")
-
-
-@app.route("/addclass")
-def addclass():
-    if "username" in session:
-        subject = request.form["subject"]
-        classname = request.form["classname"]
-        if (subject is None) or (classname is None):
-            return redirect("/addclass")
-        else:
-            utils.addclass(session["username"], subject, classname)
-            return render_template("class.html")
-    else:
-        return redirect("/login")
- 
- 
-@app.route("/addsubject")
-def addsubject():
-    if "username" in session:
-        subject = request.form["subject"]
-        if (subject is None):
-            return redirect("/addsubject")
-        else:
-            utils.addsubject(session["username"], subject)
-            return render_template("subject.html")
-    else:
-        return redirect("/login")
-
- 
-@app.route("/schools/<Schoolname>")
-def school():
-    return render_template("school.html")
- 
- 
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>")
-def subject():
-    return render_template("class.html")
- 
- 
-@app.route("/editprofile")
-def edit():
-  if "username" in session:
-      First = request.form["first"]
-      Last = request.form["last"]
-      School = request.form["school"]
-      NewUser = request.form["username"]
-      NewPass = request.form["password"]
-      if not (first is None):
-        utils.updateFirst(First)
-      if not (Last is None):
-        utils.updateLast(Last)
-      if not (School is None):
-        utils.updateSchool(School)
-      if not (NewUser is None):
-        utils.change_username("username", NewUser)
-      if not (NewPass is None):
-        utils.change_password("username", NewPass)
-  else:
-    return redirect("/login")
-    
- 
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>")
-def classname():
-    return render_template("class.html")
- 
- 
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>/addDoc")
-def addDoc():
-    for f in request.files:
-        file = request.files[f]
-        if (file is None):
-          render_template("docerror.html")
-        filename = file.filename
-        if (file[filename] is None):
-            file.save(filename)
-            jsname = "<a href=\"/ViewerJS/#../path/to/\"" + filename + ">"
-            render_template("class.html", jsname = jsname)
-        else:
-            render_template("docerror2.html")
-       
- 
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
-def editDoc():
-    for f in request.files:
-        file = request.files[f]
-        qname = f
-        filename = file.filename
-        if (file[filename] is None):
-            render_template("docerror.html")
-        else:
-            file.save(filename)
- 
  
 if __name__ == "__main__":
     app.debug = True

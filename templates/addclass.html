@@ -1,10 +1,29 @@
 {% extends "layout.html" %}
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 {% block body %}
+
 	<h2>Add a class</h2>
-	<form role="form" action="/addclass" method="post">
-		<div class="form-group">
-			<input class="form-control" name="classname" type="text" placeholder="Classname" required>
-		</div>
-		<button class="btn btn-default" type="submit">Add class</button>
-	</form>
+
+<form class="pure-form pure-form-stacked">
+    <fieldset>
+        <legend>Add a class</legend>
+
+        <label for="class">Class</label>
+        <input id="classname" type="text" placeholder="Classname">
+
+        <label for="Subject">Subject</label>
+        <input id="subject" type="text" placeholder="Subject">
+
+        <label for="level">Type of Class</label>
+        <select id="level">
+            <option>Regular</option>
+            <option>Honors</option>
+            <option>AP</option>
+        </select>
+
+    
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+
 {% endblock %}

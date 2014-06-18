@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Loading Bootstrap -->
+    <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../static/css/flat-ui.css" rel="stylesheet">
+    <link href="../static/css/demo.css" rel="stylesheet">
+   
+
+  </head>
+  
+  <body>
+  
+{{jsname}} 
+  
+    <h1>Upload Document</h1>
+    <form action="upload_file.php" method="post" enctype="multipart/form-data">
+      <label for="file">Filename:</label>
+      <input type="file" name="file" id="file"><br>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+
+</html>

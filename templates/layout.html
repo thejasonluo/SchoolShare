@@ -1,63 +1,45 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <!-- Loading Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
 
-    <!-- Loading Flat UI -->
-    <link href="../static/css/flat-ui.css" rel="stylesheet">
-    <link href="../static/css/demo.css" rel="stylesheet">
-    <script src="../static/js/jquery-2.0.3.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
-   </head>
+<head>
+	<meta charset="utf-8">
+	<title>School Share</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="{{url_for('static', filename='js/jquery-1.10.2.min.js')}}"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
 
-  <body>
-       <div class="row demo-row">
-      <!--Navbar-->
-      <nav class="navbar navbar-inverse" role="navigation">
-      	<div class="navbar-header">
-      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-02">
-      			<span class="sr-only"> Toggle navigation</span>
-      		</button>
-      		<a class="navbar-brand" href="/"> SchoolShare</a> 
-      	</div>
-      	<div class="collapse navbar-collapse">
-
-      		<ul class="nav navbar-nav">
-      			<li class="dropdown">
-      				<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:22">
-      					Class
-      					<b class="caret"></b>
-      				</a>
-      				<span class="drowndown-arrow"></span>
-      				<ul class="dropdown-menu">
-      					<li>
-      						<a href="/addsubject">Add Subject</a>
-      					</li>
-      					<li>
-      						<a href="/addclass">Add Class</a>
-      					</li>
-      					<li>
-      						<a href="/editprofile">Edit Profile</a>
-      					</li>
-      				</ul>
-      			</li>	
-      			<li>
-      				<a hre" style="font-size:18";>Profile</a>
-
-      			</li>
-      		</ul>
-      		<div class="nav navbar-nav" style="float:right; margin-right:10px; margin-top: 4px;">
-      				<div>
-      				<a href="#" class="btn btn-block btn-lg btn-info">Logout </a>
-      				</div>
-      		</div>
-      	</div>
-      </nav>
-
-
-      </nav>
-  </body>
-<script>
-
-</script>
+<body>
+	<header class="navbar navbar-static-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{url_for('home')}}">School Share</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<a href="/profile" class="btn btn-primary navbar-btn">Profile</a>
+					{% if utils.logged_in() %}
+					<a href="/logout" id="logout" type="button" class="btn btn-primary navbar-btn">
+						<i class="fa fa-sign-out"></i>
+						Logout
+					</a>
+					{% else %}
+					<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#register-modal">Register</button>
+					<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#login-modal">
+						<i class="fa fa-sign-in"></i>
+						Login
+					</button>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="body">
+		<div class="container">
+			{% block body %}
+			{% endblock %}
+		</div>
+	</div>
+</body>

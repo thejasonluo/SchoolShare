@@ -76,7 +76,7 @@ def logout():
     return redirect(url_for('home'));
  
  
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>/addDoc")
+@app.route("/<Classname>/addDoc")
 def addDoc():
     for f in request.files:
         file = request.files[f]
@@ -91,7 +91,7 @@ def addDoc():
                 render_template("docerror2.html")
                 
        
-@app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
+@app.route("/<Classname>/editDoc")
 def editDoc():
     for f in request.files:
         file = request.files[f]

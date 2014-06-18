@@ -20,7 +20,7 @@ def classes():
          return redirect("/addclass")
      else:
          utils.addclass(session["username"], classname)
-    return render_template("class.html")
+         return render_template("class.html")
  
 @app.route("/classes/<classname>")
 def one_class():

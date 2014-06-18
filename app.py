@@ -13,6 +13,14 @@ env.globals.update(utils=utils)
  
 @app.route("/classes")
 def classes():
+ if "username" in session:
+     subject = request.form["subject"]
+     classname = request.form["classname"]
+     if (subject is None) or (classname is None):
+         return redirect("/addclass")
+     else:
+         utils.addclass(session["username"], classname)
+         return render_template("class.html")
     return render_template("class.html")
  
 @app.route("/classes/<classname>")

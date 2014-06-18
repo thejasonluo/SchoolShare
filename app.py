@@ -13,7 +13,7 @@ env.globals.update(utils=utils)
  
 @app.route("/classes")
 def classes():
-    return render_template("classes.html")
+    return render_template("class.html")
  
 @app.route("/classes/<classname>")
 def one_class():

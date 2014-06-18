@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Add a class</h2>
+	<form role="form" action="/addclass" method="post">
+		<div class="form-group">
+			<input class="form-control" name="classname" type="text" placeholder="Classname" required>
+		</div>
+		<button class="btn btn-default" type="submit">Add class</button>
+	</form>
+{% endblock %}

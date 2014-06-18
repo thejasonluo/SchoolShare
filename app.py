@@ -69,6 +69,34 @@ def logout():
     return redirect(url_for('home'));
  
  
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>/addDoc")
+def addDoc():
+    for f in request.files:
+        file = request.files[f]
+        if (file is None):
+            render_template("docerror.html")
+            filename = file.filename
+            if (file[filename] is None):
+                file.save(filename)
+                jsname = "<a href=\"/ViewerJS/#../path/to/\"" + filename + ">"
+                render_template("class.html", jsname = jsname)
+            else:
+                render_template("docerror2.html")
+                
+       
+@app.route("/schools/<Schoolname>/<Subject>/<Classname>/editDoc")
+def editDoc():
+    for f in request.files:
+        file = request.files[f]
+        qname = f
+        filename = file.filename
+        if (file[filename] is None):
+            render_template("docerror.html")	  	
+        else:
+            
+            file.save(filename)
+
+
 # Do we want to have a profile that shows what classes you are attached to?
 @app.route("/profile")
 def profile():
